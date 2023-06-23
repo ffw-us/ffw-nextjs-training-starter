@@ -1,0 +1,102 @@
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 95%;
+  max-width: 1000px;
+}
+
+body {
+  background-color: white;
+  color: black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#logo-black {
+  display: block;
+}
+#logo-white {
+  display: none;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em;
+  background-color: black;
+  color: white;
+
+  li {
+    padding: 0.5em 1em;
+  }
+}
+
+.albums,
+.photos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+  padding: 0;
+
+  li {
+    width: 150px;
+
+    a {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.photo {
+  max-width: 100%;
+  height: auto;
+}
+
+.message {
+  border: 1px solid gray;
+  background-color: #eee;
+  color: black;
+  padding: 1em;
+}
+
+@mixin dark-mode {
+  color-scheme: dark;
+  body {
+    background: black;
+    color: white;
+  }
+  .menu {
+    background-color: white;
+    color: black;
+  }
+  #logo-black {
+    display: none;
+  }
+  #logo-white {
+    display: block;
+  }
+}
+
+html.dark-mode {
+  @include dark-mode();
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light-mode) {
+    @include dark-mode();
+  }
+}
